@@ -8,8 +8,6 @@ const admin = require("./fireb")
 const Conversation = require("./models/conversation")
 const Membership = require("./models/membership");
 const User = require("./models/user");
-//import routes
-
 
 require("dotenv").config();
 
@@ -77,9 +75,6 @@ cron.schedule('0 0 * * *', async () => {
 				const convs = await Conversation.findOne({
 					members: { $all: [workspace?._id, users[i]._id] },
 				});
-
-
-
 
 				if (users[i].notificationtoken) {
 
